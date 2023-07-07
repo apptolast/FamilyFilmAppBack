@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    networks:
+      - FamilyApp
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: root-db
+
+  server:
+    image: familyapp
+    container_name: server-express
+    restart: always
+    depends_on:
+      - mongo
+    networks:
+      - FamilyApp
+    ports:
+      - 3000:3000
+
+networks:
+  FamilyApp:

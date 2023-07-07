@@ -2,6 +2,13 @@
   "name": "familyapp",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "docker:create": "docker build -t familyapp -f .docker/Dockerfile .",
+    "docker:init": "docker run familyapp",
+    "docker:up": "docker-compose -f .docker/docker-compose.yml up -d",
+    "docker:down": "docker-compose -f .docker/docker-compose.yml down",
+    "start": "yarn run docker:up"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
