@@ -1,15 +1,17 @@
-# familyapp
+# FamilyApp
+Backend API
 
-To install dependencies:
-
+> Fist time
+Is necessary to create the docker images on the first deploy. Running this command
 ```bash
-bun install
+yarn run docker:create
 ```
 
-To run:
-
+## Start development server
 ```bash
-bun run index.ts
+yarn run start
 ```
 
-This project was created using `bun init` in bun v0.6.13. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+You can test the app is running, navigate to `localhost:3000` in your browser. You need to see the following message: 
+
+```Hello World!```
