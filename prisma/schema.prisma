@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int  @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  name      String?
+  username  String?
+  avatar    String?
+}
+
+// Based on The Movie DB API movie's model
+model Movie {
+  id                      Int  @id @default(autoincrement())
+  adult                   Boolean   @default(false)
+  title                   String
+  backdrop_path           String?
+  budget                  Float?
+  belongs_to_collection   Json?
+  genres                  Json?
+  production_companies    Json?
+  production_countries    Json?
+  spoken_languages        Json?
+  genre_ids               Int[]
+  original_language       String
+  original_title          String?
+  overview                String?
+  homepage                String?
+  imdb_id                 String?
+  popularity              Float?
+  revenue                 Float?
+  runtime                 Int?
+  poster_path             String?
+  status                  String?
+  tagline                 String?   
+  release_date            String?
+  video                   Boolean   @default(false)
+  vote_average            Float
+  vote_count              Int?
+}
