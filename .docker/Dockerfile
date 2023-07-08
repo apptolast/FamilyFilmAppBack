@@ -1,21 +1,33 @@
-# BunJS image
-FROM jarredsumner/bun:0.5.1
+# STAGE INIT
+FROM node:alpine as builder
 
 # Base Dir
 WORKDIR /app
 
-# Bun and project config files
+# Project config files
 COPY package.json package.json
-COPY bun.lockb bun.lockb
+COPY yarn.lock yarn.lock
+COPY prisma ./prisma/
+COPY .env ./
+COPY tsconfig.json ./
 
-# Command to install bun
-RUN bun install
+COPY src/index.ts ./src/
 
-# Main file
-COPY index.ts index.ts
+RUN yarn
+
+COPY . .
+
+# STAGE MAIN
+FROM node:alpine
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/src ./src
+COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/.docker/.env ./
 
 # Port
 EXPOSE 3000
 
 # Start command
-ENTRYPOINT ["bun", "index.ts"]
+CMD ["yarn", "run", "start:migrate"]

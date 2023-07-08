@@ -1,29 +1,33 @@
 version: '3.7'
 
 services:
-  mongo:
-    image: mongo:latest
-    container_name: mongodb
-    restart: always
-    networks:
-      - FamilyApp
+  postgres:
+    image: postgres:latest
+    container_name: postgres
     ports:
-      - 27017:27017
+      - '5432:5432'
+    networks:
+      - api
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: password
-      MONGO_INITDB_DATABASE: root-db
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: rootdb
 
   server:
     image: familyapp
     container_name: server-express
     restart: always
     depends_on:
-      - mongo
+      - postgres
     networks:
-      - FamilyApp
+      - api
     ports:
       - 3000:3000
 
+volumes:
+  pgdata:
+
 networks:
-  FamilyApp:
+  api:
