@@ -1,21 +1,37 @@
 {
   "name": "familyapp",
   "module": "index.ts",
-  "type": "module",
   "scripts": {
     "docker:create": "docker build -t familyapp -f .docker/Dockerfile .",
-    "docker:init": "docker run familyapp",
     "docker:up": "docker-compose -f .docker/docker-compose.yml up -d",
-    "docker:down": "docker-compose -f .docker/docker-compose.yml down",
-    "start": "yarn run docker:up"
+    "docker:down": "docker-compose -f .docker/docker-compose.yml stop",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev --name base-migration && npx prisma generate",
+    "prisma:push": "npx prisma db push",
+    "prisma:init": "yarn prisma:generate && yarn prisma:migrate && yarn prisma:push",
+    "prisma:seed": "npx prisma db seed",
+    "prisma:deploy": "npx prisma migrate deploy",
+    "server:create": "yarn docker:create && yarn dev && yarn prisma:seed",
+    "start:migrate": "yarn prisma:deploy && yarn start",
+    "start": "ts-node src/index.ts",
+    "dev": "yarn docker:up",
+    "stop": "yarn docker:down"
   },
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "prisma": {
+    "seed": "ts-node prisma/seeds/movies.ts"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "@prisma/client": "^4.16.2",
+    "@types/express": "^4.17.17",
+    "config": "^3.3.9",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "prisma": "^4.16.2"
+  },
+  "devDependencies": {
+    "@types/config": "^3.3.0",
+    "@types/node": "^20.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
   }
 }
