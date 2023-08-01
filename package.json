@@ -13,24 +13,29 @@
     "prisma:deploy": "npx prisma migrate deploy",
     "server:create": "yarn docker:create && yarn dev && yarn prisma:seed",
     "start:migrate": "yarn prisma:deploy && yarn start",
-    "start": "ts-node src/index.ts",
+    "start": "npx ts-node src/api/server.ts",
     "dev": "yarn docker:up",
     "stop": "yarn docker:down"
   },
   "prisma": {
-    "seed": "ts-node prisma/seeds/movies.ts"
+    "seed": "ts-node --transpile-only prisma/seeds/movies.ts"
   },
   "dependencies": {
     "@prisma/client": "^4.16.2",
-    "@types/express": "^4.17.17",
-    "config": "^3.3.9",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "prisma": "^4.16.2"
+    "express-rescue": "^1.2.0",
+    "http-status-codes": "^2.2.0",
+    "jsonwebtoken": "^9.0.1"
   },
   "devDependencies": {
-    "@types/config": "^3.3.0",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^20.4.1",
+    "nodemon": "^3.0.1",
+    "prisma": "^4.16.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   }
