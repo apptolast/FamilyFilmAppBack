@@ -11,7 +11,7 @@ COPY prisma ./prisma/
 COPY .env ./
 COPY tsconfig.json ./
 
-COPY src/index.ts ./src/
+COPY src/ ./src/
 
 RUN yarn
 
