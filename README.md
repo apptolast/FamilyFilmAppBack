@@ -11,6 +11,12 @@ Docker daemon is required to start the development server. Can download from the
 - [Linux](https://docs.docker.com/desktop/install/linux-install/)
 - [MacOS](https://docs.docker.com/desktop/install/mac-install/)
 
+### <b>Yarn</b>
+Package manager
+
+- [Official install](https://yarnpkg.com/getting-started/install)
+
+
 ### Download Git repository
 
 Clone the current repository on your development machine.
