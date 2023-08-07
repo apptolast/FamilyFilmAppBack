@@ -16,6 +16,15 @@ Package manager
 
 - [Official install](https://yarnpkg.com/getting-started/install)
 
+### <b>Node JS - NVM</b>
+Node engine is a JavaScript runtime built on Chrome's V8 JavaScript engine. That allows to execute Javascript in our machines. We can install it through NVM (Node Version Manager), and so we need to install it first. Here is a FreeCodeCamp tutorial, very easy. 
+
+- [Windows](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
+- [Linux](https://tecadmin.net/how-to-install-nvm-on-ubuntu-20-04/)
+- [MacOS](https://tecadmin.net/install-nvm-macos-with-homebrew/)
+
+> You need a version of node 12 or higher. I recomend to use Node 16.20.0 (LTS).
+
 
 ### Download Git repository
 
