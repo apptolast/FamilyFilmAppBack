@@ -1,6 +1,9 @@
 {
   "name": "familyapp",
   "module": "index.ts",
+  "engines": {
+    "node": "16.14"
+  },
   "scripts": {
     "docker:create": "docker build -t familyapp -f .docker/Dockerfile .",
     "docker:up": "docker-compose -f .docker/docker-compose.yml up -d",
@@ -29,7 +32,6 @@
     "http-status-codes": "^2.2.0",
     "jsonwebtoken": "^9.0.1",
     "ts-node": "^10.9.1",
-    "node": "16.14"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
