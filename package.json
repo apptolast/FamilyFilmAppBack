@@ -1,6 +1,9 @@
 {
   "name": "familyapp",
   "module": "index.ts",
+  "engines": {
+    "node": "16.14"
+  },
   "scripts": {
     "docker:create": "docker build -t familyapp -f .docker/Dockerfile .",
     "docker:up": "docker-compose -f .docker/docker-compose.yml up -d",
