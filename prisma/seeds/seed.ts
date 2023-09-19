@@ -3,6 +3,52 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function run() {
+  const user1 = await prisma.user.upsert({
+    where: { id: 1 },
+    update: {},
+    create: {
+      email: "user1@test.com",
+      password: "Pass1234",
+      name: "Leorio Asfalto",
+    },
+  });
+  const user2 = await prisma.user.upsert({
+    where: { id: 2 },
+    update: {},
+    create: {
+      email: "user2@test.com",
+      password: "Pass1234",
+      name: "Jhon Cena",
+    },
+  });
+  const user3 = await prisma.user.upsert({
+    where: { id: 3 },
+    update: {},
+    create: {
+      email: "user3@test.com",
+      password: "Pass1234",
+      name: "Dobbie The elf",
+    },
+  });
+  const user4 = await prisma.user.upsert({
+    where: { id: 4 },
+    update: {},
+    create: {
+      email: "user4@test.com",
+      password: "Pass1234",
+      name: "Gon Freeics",
+    },
+  });
+  const user5 = await prisma.user.upsert({
+    where: { id: 5 },
+    update: {},
+    create: {
+      email: "user5@test.com",
+      password: "Pass1234",
+      name: "Lucius Malfoy",
+    },
+  });
+
   const movie1 = await prisma.movie.upsert({
     where: { id: 337404 },
     update: {},
@@ -1292,27 +1338,319 @@ async function run() {
     },
   });
 
-  console.log({
-    movie1,
-    movie2,
-    movie3,
-    movie4,
-    movie5,
-    movie6,
-    movie7,
-    movie8,
-    movie9,
-    movie10,
-    movie11,
-    movie12,
-    movie13,
-    movie14,
-    movie15,
-    movie16,
-    movie17,
-    movie18,
-    movie19,
-    movie20,
+  const group1 = await prisma.group.upsert({
+    where: {
+      id: 1,
+    },
+    update: {},
+    create: {
+      name: "Familia",
+      users: {
+        create: [
+          {
+            user: {
+              connect: {
+                id: 1,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 2,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 3,
+              },
+            },
+          },
+        ],
+      },
+      watchList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 586047,
+              },
+            },
+          },
+        ],
+      },
+      viewList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 726684,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 527774,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 813258,
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  const group2 = await prisma.group.upsert({
+    where: {
+      id: 2,
+    },
+    update: {},
+    create: {
+      name: "Amigos",
+      users: {
+        create: [
+          {
+            user: {
+              connect: {
+                id: 3,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 4,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 5,
+              },
+            },
+          },
+        ],
+      },
+      watchList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 637649,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 460465,
+              },
+            },
+          },
+        ],
+      },
+      viewList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 823855,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 567189,
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  const group3 = await prisma.group.upsert({
+    where: {
+      id: 3,
+    },
+    update: {},
+    create: {
+      name: "Novia",
+      users: {
+        create: [
+          {
+            user: {
+              connect: {
+                id: 2,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 3,
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  const group4 = await prisma.group.upsert({
+    where: {
+      id: 4,
+    },
+    update: {},
+    create: {
+      name: "Solitario",
+      users: {
+        create: [
+          {
+            user: {
+              connect: {
+                id: 2,
+              },
+            },
+          },
+        ],
+      },
+      watchList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 399566,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 578701,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 808023,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 615457,
+              },
+            },
+          },
+        ],
+      },
+      viewList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 691179,
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+  const group5 = await prisma.group.upsert({
+    where: {
+      id: 5,
+    },
+    update: {},
+    create: {
+      name: "Worker Dudes",
+      users: {
+        create: [
+          {
+            user: {
+              connect: {
+                id: 1,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 2,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 3,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 4,
+              },
+            },
+          },
+          {
+            user: {
+              connect: {
+                id: 5,
+              },
+            },
+          },
+        ],
+      },
+      watchList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 804435,
+              },
+            },
+          },
+        ],
+      },
+      viewList: {
+        create: [
+          {
+            movie: {
+              connect: {
+                id: 717192,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 635302,
+              },
+            },
+          },
+          {
+            movie: {
+              connect: {
+                id: 520763,
+              },
+            },
+          },
+        ],
+      },
+    },
   });
 }
 
