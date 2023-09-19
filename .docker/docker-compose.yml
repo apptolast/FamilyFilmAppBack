@@ -6,6 +6,8 @@ services:
     container_name: postgres
     ports:
       - '5432:5432'
+    expose:
+      - '5432'
     networks:
       - api
     volumes:
