@@ -18,7 +18,7 @@
     "stop": "yarn docker:down"
   },
   "prisma": {
-    "seed": "ts-node --transpile-only prisma/seeds/movies.ts"
+    "seed": "ts-node --transpile-only prisma/seeds/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
