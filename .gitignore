@@ -4,6 +4,10 @@
 # Environment files
 .env
 
+# Config local files
+
+.vscode
+
 # Logs
 
 logs
