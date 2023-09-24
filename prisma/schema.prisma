@@ -10,79 +10,90 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
 model User {
-  id       Int          @id @default(autoincrement())
-  email    String       @unique
-  password String
-  name     String?
-  username String?
-  avatar   String?
-  groups   GroupUsers[]
+  id            Int          @id @default(autoincrement())
+  email         String       @unique
+  firebase_uuid String
+  role          Role         @default(USER)
+
+  groups        GroupUsers[]
 }
 
 model Group {
   id        Int          @id @default(autoincrement())
   name      String
+
   users     GroupUsers[]
   watchList WatchList[]
   viewList  ViewList[]
 }
 
 model GroupUsers {
-  user    User  @relation(fields: [userId], references: [id])
-  userId  Int
-  group   Group @relation(fields: [groupId], references: [id])
-  groupId Int
+  user_id  Int
+  group_id Int
 
-  @@id([userId, groupId])
+  user     User  @relation(fields: [user_id], references: [id])
+  group    Group @relation(fields: [group_id], references: [id])
+
+  @@id([user_id, group_id])
 }
 
 model WatchList {
-  group   Group @relation(fields: [groupId], references: [id])
-  groupId Int
-  movie   Movie @relation(fields: [movieId], references: [id])
-  movieId Int
+  group_id Int
+  movie_id Int
 
-  @@id([groupId, movieId])
+  group    Group @relation(fields: [group_id], references: [id])
+  movie    Movie @relation(fields: [movie_id], references: [id])
+
+  @@id([group_id, movie_id])
 }
 
 model ViewList {
-  group   Group @relation(fields: [groupId], references: [id])
-  groupId Int
-  movie   Movie @relation(fields: [movieId], references: [id])
-  movieId Int
+  group_id Int
+  movie_id Int
 
-  @@id([groupId, movieId])
+  group    Group @relation(fields: [group_id], references: [id])
+  movie    Movie @relation(fields: [movie_id], references: [id])
+
+  @@id([group_id, movie_id])
+}
+
+model Genre {
+  id     Int          @id @default(autoincrement())
+  name   String
+
+  movies GenreMovie[]
+}
+
+model GenreMovie {
+  genre_id Int
+  movie_id Int
+
+  genre    Genre @relation(fields: [genre_id], references: [id])
+  movie    Movie @relation(fields: [movie_id], references: [id])
+
+  @@id([genre_id, movie_id])
 }
 
 // Based on The Movie DB API movie's model
 model Movie {
-  id                    Int         @id @default(autoincrement())
-  adult                 Boolean     @default(false)
-  title                 String
-  backdrop_path         String?
-  budget                Float?
-  belongs_to_collection Json?
-  genres                Json?
-  production_companies  Json?
-  production_countries  Json?
-  spoken_languages      Json?
-  genre_ids             Int[]
-  original_language     String
-  original_title        String?
-  overview              String?
-  homepage              String?
-  imdb_id               String?
-  popularity            Float?
-  revenue               Float?
-  runtime               Int?
-  poster_path           String?
-  status                String?
-  tagline               String?
-  release_date          String?
-  video                 Boolean     @default(false)
-  vote_average          Float
-  vote_count            Int?
-  watchLists            WatchList[]
-  viewLists             ViewList[]
+  id           Int          @id @default(autoincrement())
+  adult        Boolean      @default(false)
+  title        String
+  genre_ids    Int[]
+  language     String
+  synopsis     String?
+  image        String?
+  release_date String?
+  vote_average Float
+  vote_count   Int?
+
+  genres       GenreMovie[]
+  watchLists   WatchList[]
+  viewLists    ViewList[]
 }
