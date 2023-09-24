@@ -4,6 +4,9 @@ import routes from './routes';
 
 const app = express();
 
-app.use(express.json()).use(routes).use(errorMiddleware);
+app
+    .use(express.json())
+    .use('/api', routes)
+    .use(errorMiddleware);
 
 export default app;
