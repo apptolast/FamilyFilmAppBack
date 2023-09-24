@@ -3,7 +3,7 @@ import { StatusCodes } from "http-status-codes";
 
 class StatusController {
     async status(req: Request, res: Response, next: NextFunction) {
-        res.status(StatusCodes.OK).json({"status":"success","message":"STATUS: OK!"});
+        res.status(StatusCodes.OK).json({status: "success", message: "STATUS: OK!"});
     }
 }
 
