@@ -6,6 +6,7 @@ const SECRET = process.env.JWT_SECRET || 'secret';
 interface IPayload {
   id: number;
   email: string;
+  role: string;
 }
 
 export default {

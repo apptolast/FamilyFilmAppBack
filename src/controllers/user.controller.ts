@@ -4,16 +4,22 @@ import prisma from '../lib/prisma';
 
 class UserController {
   async getById(req: Request, res: Response, next: NextFunction) {
-    console.log(res.locals.payload); // just to see the payload
-
-    const user = await prisma.user.findUnique({
+    const data = await prisma.user.findUnique({
       where: { id: Number(req.params.id) },
     });
+    
+    if (!data)
+    return next({ status: StatusCodes.NOT_FOUND, message: 'User not found' });
+  
+  res.status(StatusCodes.OK).json({ status: 'success', data });
+}
+async getAll(req: Request, res: Response, next: NextFunction) {
+    const data = await prisma.user.findMany();
 
-    if (!user)
-      return next({ status: StatusCodes.NOT_FOUND, message: 'User not found' });
+    if (!data)
+      return next({ status: StatusCodes.NOT_FOUND, message: 'Users not found' });
 
-    res.status(StatusCodes.OK).json({ name: user.name, email: user.email });
+    res.status(StatusCodes.OK).json({ status: 'success', data });
   }
 }
 
