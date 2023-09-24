@@ -1,17 +1,18 @@
 import { Router } from 'express';
 import rescue from 'express-rescue';
+import authMiddleware from '../middlewares/auth';
 import groupController from '../controllers/group.controller';
 
 
 const groupRouter = Router();
 
-groupRouter.route('/').get(rescue(groupController.getAll));
-groupRouter.route('/:id').get(rescue(groupController.getById));
+groupRouter.route('/').get(authMiddleware, rescue(groupController.getAll));
+groupRouter.route('/:id').get(authMiddleware, rescue(groupController.getById));
 
-groupRouter.route('/').post(rescue(groupController.create));
+groupRouter.route('/').post(authMiddleware, rescue(groupController.create));
 
-groupRouter.route('/:id').put(rescue(groupController.update));
+groupRouter.route('/:id').put(authMiddleware, rescue(groupController.update));
 
-groupRouter.route('/:id').delete(rescue(groupController.delete));
+groupRouter.route('/:id').delete(authMiddleware, rescue(groupController.delete));
 
 export default groupRouter;
