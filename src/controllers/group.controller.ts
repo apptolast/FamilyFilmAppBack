@@ -7,6 +7,15 @@ import prisma from "../lib/prisma";
 class GroupController {
   async getAll(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.group.findMany({
+      where: {
+        users: {
+          some: {
+            user: {
+              id: res.locals.payload.id
+            }
+          } 
+        }
+      },
       include: {
         watchList: {
           include: {
@@ -28,47 +37,19 @@ class GroupController {
       });
     }
 
-    res.status(StatusCodes.OK).json({ data });
+    res.status(StatusCodes.OK).json({ status: 'success', data });
   }
   async getById(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.group.findFirst({
       where: {
         id: Number(req.params.id),
-      },
-      include: {
-        watchList: {
-          include: {
-            movie: true,
-          },
-        },
-        viewList: {
-          include: {
-            movie: true,
-          },
-        },
-      },
-    });
-
-    if (!data) {
-      return next({
-        status: StatusCodes.NOT_FOUND,
-        message: "Not groups registered",
-      });
-    }
-
-    res.status(StatusCodes.OK).json({ data });
-  }
-
-  async getAllByUserId(req: Request, res: Response, next: NextFunction) {
-    const data = await prisma.group.findMany({
-      where: {
         users: {
           some: {
             user: {
-              id: Number(req.params.userId),
-            },
-          },
-        },
+              id: res.locals.payload.id
+            }
+          } 
+        }
       },
       include: {
         watchList: {
@@ -91,43 +72,9 @@ class GroupController {
       });
     }
 
-    res.status(StatusCodes.OK).json({ data });
+    res.status(StatusCodes.OK).json({ status: 'success', data });
   }
-  async getOneByUserId(req: Request, res: Response, next: NextFunction) {
-    const data = await prisma.group.findFirst({
-      where: {
-        id: Number(req.params.id),
-        users: {
-          some: {
-            user: {
-              id: Number(req.params.userId),
-            },
-          },
-        },
-      },
-      include: {
-        watchList: {
-          include: {
-            movie: true,
-          },
-        },
-        viewList: {
-          include: {
-            movie: true,
-          },
-        },
-      },
-    });
 
-    if (!data) {
-      return next({
-        status: StatusCodes.NOT_FOUND,
-        message: "Not groups registered",
-      });
-    }
-
-    res.status(StatusCodes.OK).json({ data });
-  }
   async create(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.group.create({
       data: req.body,
@@ -136,10 +83,10 @@ class GroupController {
     if (!data)
       return next({
         status: StatusCodes.UNPROCESSABLE_ENTITY,
-        message: "Some params are not valid",
+        message: "Not group found",
       });
 
-    res.status(StatusCodes.CREATED).json({ data });
+    res.status(StatusCodes.OK).json({ status: 'success', data });
   }
 
   async update(req: Request, res: Response, next: NextFunction) {
@@ -156,7 +103,7 @@ class GroupController {
         message: "Not group found",
       });
 
-    res.status(StatusCodes.OK).json({ data });
+    res.status(StatusCodes.OK).json({ status: 'success', data });
   }
   async delete(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.group.delete({
@@ -171,7 +118,7 @@ class GroupController {
         message: "Not group found",
       });
 
-    res.status(StatusCodes.NO_CONTENT).json({ data });
+    res.status(StatusCodes.NO_CONTENT).json({ status: 'success', data });
   }
 }
 
