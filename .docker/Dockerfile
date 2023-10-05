@@ -1,5 +1,5 @@
 # STAGE INIT
-FROM node:alpine as builder
+FROM node:16.14-alpine as builder
 
 # Base Dir
 WORKDIR /app
@@ -18,7 +18,7 @@ RUN yarn
 COPY . .
 
 # STAGE MAIN
-FROM node:alpine
+FROM node:16.14-alpine
 
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package*.json ./
