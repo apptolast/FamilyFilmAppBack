@@ -8,20 +8,13 @@
     "docker:create": "docker build -t familyapp -f .docker/Dockerfile .",
     "docker:up": "docker-compose -f .docker/docker-compose.yml up -d",
     "docker:down": "docker-compose -f .docker/docker-compose.yml stop",
-    "prisma:generate": "npx prisma generate",
-    "prisma:migrate": "npx prisma migrate dev --name base-migration && npx prisma generate",
     "prisma:push": "npx prisma db push",
-    "prisma:init": "yarn prisma:generate && yarn prisma:migrate && yarn prisma:push",
-    "prisma:seed": "npx prisma db seed",
     "prisma:deploy": "npx prisma migrate deploy",
     "server:create": "yarn docker:create && yarn dev",
     "start:migrate": "yarn prisma:deploy && yarn start",
     "start": "npx ts-node src/api/server.ts",
-    "dev": "yarn docker:up && yarn prisma:seed",
+    "dev": "yarn docker:up",
     "stop": "yarn docker:down"
-  },
-  "prisma": {
-    "seed": "ts-node --transpile-only prisma/seeds/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.1.1",
