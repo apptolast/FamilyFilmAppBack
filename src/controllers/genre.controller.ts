@@ -4,7 +4,11 @@ import prisma from "../lib/prisma";
 
 class GenreController {
   async getAll(req: Request, res: Response, next: NextFunction) {
-    const data = await prisma.genre.findMany();
+    const data = await prisma.genre.findMany({
+      include: {
+        movies: true,
+      }
+    });
     if (!data) {
       return next({
         status: StatusCodes.NOT_FOUND,

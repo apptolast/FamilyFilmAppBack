@@ -4,25 +4,11 @@ import prisma from "../lib/prisma";
 
 class MovieController {
   async getAll(req: Request, res: Response, next: NextFunction) {
-    let data;
-
-    if (req.query.groupBy == "genres") {
-      data = await prisma.genre.findMany({
-        include: {
-          movies: {
-            include: {
-              movie: true,
-            },
-          },
-        },
-      });
-    } else {
-      data = await prisma.movie.findMany({
-        include: {
-          genres: true,
-        },
-      });
-    }
+    const data = await prisma.movie.findMany({
+      include: {
+        genres: true,
+      },
+    });
 
     if (!data)
       return next({
@@ -30,7 +16,7 @@ class MovieController {
         message: "Not movies registered",
       });
 
-    res.status(StatusCodes.OK).json({ status: 'success', data });
+    res.status(StatusCodes.OK).json({ status: "success", data });
   }
 
   async getById(req: Request, res: Response, next: NextFunction) {
@@ -49,7 +35,7 @@ class MovieController {
         message: "Movie not found",
       });
 
-    res.status(StatusCodes.OK).json({ status: 'success', data });
+    res.status(StatusCodes.OK).json({ status: "success", data });
   }
 
   async create(req: Request, res: Response, next: NextFunction) {
@@ -63,7 +49,7 @@ class MovieController {
         message: "Some params are not valid",
       });
 
-    res.status(StatusCodes.CREATED).json({ status: 'success', data });
+    res.status(StatusCodes.CREATED).json({ status: "success", data });
   }
 
   async update(req: Request, res: Response, next: NextFunction) {
@@ -80,7 +66,7 @@ class MovieController {
         message: "Not movie found",
       });
 
-    res.status(StatusCodes.OK).json({ status: 'success', data });
+    res.status(StatusCodes.OK).json({ status: "success", data });
   }
 
   async delete(req: Request, res: Response, next: NextFunction) {
@@ -96,7 +82,7 @@ class MovieController {
         message: "Not movie found",
       });
 
-    res.status(StatusCodes.NO_CONTENT).json({ status: 'success', data });
+    res.status(StatusCodes.NO_CONTENT).json({ status: "success", data });
   }
 }
 
