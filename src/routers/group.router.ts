@@ -15,4 +15,9 @@ groupRouter.route('/:id').put(authMiddleware, rescue(groupController.update));
 
 groupRouter.route('/:id').delete(authMiddleware, rescue(groupController.delete));
 
+groupRouter.route('/:id/addWatch').patch(authMiddleware, rescue(groupController.addWatch));
+groupRouter.route('/:id/removeWatch').patch(authMiddleware, rescue(groupController.removeWatch));
+groupRouter.route('/:id/addView').patch(authMiddleware, rescue(groupController.addView));
+groupRouter.route('/:id/removeView').patch(authMiddleware, rescue(groupController.removeView));
+
 export default groupRouter;

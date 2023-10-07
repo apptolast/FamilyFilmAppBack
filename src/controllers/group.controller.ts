@@ -11,10 +11,10 @@ class GroupController {
         users: {
           some: {
             user: {
-              id: res.locals.payload.id
-            }
-          } 
-        }
+              id: res.locals.payload.id,
+            },
+          },
+        },
       },
       include: {
         watchList: {
@@ -37,7 +37,7 @@ class GroupController {
       });
     }
 
-    res.status(StatusCodes.OK).json({ status: 'success', data });
+    res.status(StatusCodes.OK).json({ status: "success", data });
   }
   async getById(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.group.findFirst({
@@ -46,10 +46,10 @@ class GroupController {
         users: {
           some: {
             user: {
-              id: res.locals.payload.id
-            }
-          } 
-        }
+              id: res.locals.payload.id,
+            },
+          },
+        },
       },
       include: {
         watchList: {
@@ -72,7 +72,7 @@ class GroupController {
       });
     }
 
-    res.status(StatusCodes.OK).json({ status: 'success', data });
+    res.status(StatusCodes.OK).json({ status: "success", data });
   }
 
   async create(req: Request, res: Response, next: NextFunction) {
@@ -86,7 +86,7 @@ class GroupController {
         message: "Not group found",
       });
 
-    res.status(StatusCodes.OK).json({ status: 'success', data });
+    res.status(StatusCodes.OK).json({ status: "success", data });
   }
 
   async update(req: Request, res: Response, next: NextFunction) {
@@ -103,7 +103,7 @@ class GroupController {
         message: "Not group found",
       });
 
-    res.status(StatusCodes.OK).json({ status: 'success', data });
+    res.status(StatusCodes.OK).json({ status: "success", data });
   }
   async delete(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.group.delete({
@@ -118,7 +118,83 @@ class GroupController {
         message: "Not group found",
       });
 
-    res.status(StatusCodes.NO_CONTENT).json({ status: 'success', data });
+    res.status(StatusCodes.NO_CONTENT).json({ status: "success", data });
+  }
+
+  async addWatch(req: Request, res: Response, next: NextFunction) {
+    const movieId: number = Number(req.body.movieId);
+
+    if (!movieId)
+      return next({
+        status: StatusCodes.UNPROCESSABLE_ENTITY,
+        message: "No movieId received",
+      });
+
+    const data = await prisma.watchList.create({
+      data: {
+        group_id: Number(req.params.id),
+        movie_id: movieId,
+      },
+    });
+
+    res.status(StatusCodes.OK).json({ status: "success", data });
+  }
+
+  async addView(req: Request, res: Response, next: NextFunction) {
+    const movieId: number = Number(req.body.movieId);
+
+    if (!movieId)
+      return next({
+        status: StatusCodes.UNPROCESSABLE_ENTITY,
+        message: "No movieId received",
+      });
+
+    const data = await prisma.viewList.create({
+      data: {
+        group_id: Number(req.params.id),
+        movie_id: movieId,
+      },
+    });
+
+    res.status(StatusCodes.OK).json({ status: "success", data });
+  }
+
+  async removeWatch(req: Request, res: Response, next: NextFunction) {
+    const movieId: number = Number(req.body.movieId);
+
+    if (!movieId)
+      return next({
+        status: StatusCodes.UNPROCESSABLE_ENTITY,
+        message: "No movieId received",
+      });
+
+    const data = await prisma.watchList.deleteMany({
+      where: {
+        group_id: Number(req.params.id),
+        movie_id: movieId,
+      },
+    });
+
+    res.status(StatusCodes.NO_CONTENT).json({ status: "success", data });
+  }
+
+  async removeView(req: Request, res: Response, next: NextFunction) {
+    const movieId: number = Number(req.body.movieId);
+
+    if (!movieId)
+      return next({
+        status: StatusCodes.UNPROCESSABLE_ENTITY,
+        message: "No movieId received",
+      });
+
+    const data = await prisma.viewList.deleteMany({
+      where: {
+        group_id: Number(req.params.id),
+        movie_id: movieId,
+      },
+    });
+
+    res.status(StatusCodes.NO_CONTENT).json({ status: "success", data });
   }
 }
 
