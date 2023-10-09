@@ -6,7 +6,11 @@ class GenreController {
   async getAll(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.genre.findMany({
       include: {
-        movies: true,
+        movies: {
+          include: {
+            movie: true
+          }
+        }
       }
     });
     if (!data) {
@@ -22,6 +26,13 @@ class GenreController {
       where: {
         id: Number(req.params.id),
       },
+      include: {
+        movies: {
+          include: {
+            movie: true
+          }
+        }
+      }
     });
     if (!data) {
       return next({
