@@ -135,7 +135,7 @@ async function run() {
       language: "en",
       synopsis:
         "In 1970s London amidst the punk rock revolution, a young grifter named Estella is determined to make a name for herself with her designs. She befriends a pair of young thieves who appreciate her appetite for mischief, and together they are able to build a life for themselves on the London streets. One day, Estella\u2019s flair for fashion catches the eye of the Baroness von Hellman, a fashion legend who is devastatingly chic and terrifyingly haute. But their relationship sets in motion a course of events and revelations that will cause Estella to embrace her wicked side and become the raucous, fashionable and revenge-bent Cruella.",
-      image: "/hjS9mH8KvRiGHgjk6VUZH7OT0Ng.jpg",
+      image: "https://image.tmdb.org/t/p/original/hjS9mH8KvRiGHgjk6VUZH7OT0Ng.jpg",
       release_date: "2021-05-26",
       title: "Cruella",
       vote_average: 8.8,
@@ -163,7 +163,7 @@ async function run() {
       synopsis:
         "Alice, a young hearing-impaired girl who, after a supposed visitation from the Virgin Mary, is inexplicably able to hear, speak and heal the sick. As word spreads and people from near and far flock to witness her miracles, a disgraced journalist hoping to revive his career visits the small New England town to investigate. When terrifying events begin to happen all around, he starts to question if these phenomena are the works of the Virgin Mary or something much more sinister.",
 
-      image: "/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
+      image: "https://image.tmdb.org/t/p/original/6wxfWZxQcuv2QgxIQKj0eYTdKTv.jpg",
       release_date: "2021-03-31",
       title: "The Unholy",
       vote_average: 7.1,
@@ -204,7 +204,7 @@ async function run() {
       language: "en",
       synopsis:
         "Following a zombie outbreak in Las Vegas, a group of mercenaries take the ultimate gamble: venturing into the quarantine zone to pull off the greatest heist ever attempted.",
-      image: "/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
+      image: "https://image.tmdb.org/t/p/original/z8CExJekGrEThbpMXAmCFvvgoJR.jpg",
       release_date: "2021-05-14",
       title: "Army of the Dead",
       vote_average: 6.6,
@@ -239,7 +239,7 @@ async function run() {
       language: "en",
       synopsis:
         "A cold and mysterious new security guard for a Los Angeles cash truck company surprises his co-workers when he unleashes precision skills during a heist. The crew is left wondering who he is and where he came from. Soon, the marksman's ultimate motive becomes clear as he takes dramatic and irrevocable steps to settle a score.",
-      image: "/YxopfHpsCV1oF8CZaL4M3Eodqa.jpg",
+      image: "https://image.tmdb.org/t/p/original/YxopfHpsCV1oF8CZaL4M3Eodqa.jpg",
       release_date: "2021-04-22",
       vote_average: 8.0,
       vote_count: 587,
@@ -273,7 +273,7 @@ async function run() {
       language: "en",
       synopsis:
         "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
-      image: "https://api.themoviedb.org/nkayOAUBUu4mMvyNf9iHSUiPjF1.jpg",
+      image: "https://image.tmdb.org/t/p/original/nkayOAUBUu4mMvyNf9iHSUiPjF1.jpg",
       release_date: "2021-04-07",
       vote_average: 7.6,
       vote_count: 2827,
@@ -314,7 +314,7 @@ async function run() {
       language: "en",
       synopsis:
         "A special crimes investigator forms an unlikely bond with a serial killer to bring down a global child sex trafficking syndicate.",
-      image: "/m6bUeV4mczG3z2YXXr5XDKPsQzv.jpg",
+      image: "https://image.tmdb.org/t/p/original/m6bUeV4mczG3z2YXXr5XDKPsQzv.jpg",
       release_date: "2021-05-14",
       vote_average: 7.0,
       vote_count: 89,
@@ -355,7 +355,7 @@ async function run() {
       language: "en",
       synopsis:
         "An elite Navy SEAL uncovers an international conspiracy while seeking justice for the murder of his pregnant wife.",
-      image: "/rEm96ib0sPiZBADNKBHKBv5bve9.jpg",
+      image: "https://image.tmdb.org/t/p/original/rEm96ib0sPiZBADNKBHKBv5bve9.jpg",
       release_date: "2021-04-29",
       vote_average: 7.2,
       vote_count: 1083,
@@ -396,7 +396,7 @@ async function run() {
       language: "en",
       synopsis:
         "In a time when monsters walk the Earth, humanity's fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.",
-      image: "/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg",
+      image: "https://image.tmdb.org/t/p/original/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg",
       release_date: "2021-03-24",
       vote_average: 8.1,
       vote_count: 5794,
@@ -437,7 +437,7 @@ async function run() {
       language: "en",
       synopsis:
         "A young boy finds himself pursued by two assassins in the Montana wilderness with a survival expert determined to protect him - and a forest fire threatening to consume them all.",
-      image: "/xCEg6KowNISWvMh8GvPSxtdf9TO.jpg",
+      image: "https://image.tmdb.org/t/p/original/xCEg6KowNISWvMh8GvPSxtdf9TO.jpg",
       release_date: "2021-05-05",
       vote_average: 7.0,
       vote_count: 364,
@@ -478,7 +478,7 @@ async function run() {
       language: "en",
       synopsis:
         "A lonesome stranger with nerves of steel must track down and kill a rogue hitman to satisfy an outstanding debt. But the only information he's been given is a time and location where to find his quarry. No name. No description. Nothing.",
-      image: "/vXHzO26mJaOt4VO7ZFiM6No5ScT.jpg",
+      image: "https://image.tmdb.org/t/p/original/vXHzO26mJaOt4VO7ZFiM6No5ScT.jpg",
       release_date: "2021-04-30",
       vote_average: 6.2,
       vote_count: 101,
@@ -526,7 +526,7 @@ async function run() {
       language: "en",
       synopsis:
         'Hutch Mansell, a suburban dad, overlooked husband, nothing neighbor — a "nobody." When two thieves break into his home one night, Hutch\'s unknown long-simmering rage is ignited and propels him on a brutal path that will uncover dark secrets he fought to leave behind.',
-      image: "/oBgWY00bEFeZ9N25wWVyuQddbAo.jpg",
+      image: "https://image.tmdb.org/t/p/original/oBgWY00bEFeZ9N25wWVyuQddbAo.jpg",
       release_date: "2021-03-26",
       vote_average: 8.5,
       vote_count: 1796,
@@ -567,7 +567,7 @@ async function run() {
       language: "en",
       synopsis:
         "The cast of Friends reunites for a once-in-a-lifetime celebration of the hit series, an unforgettable evening filled with iconic memories, uncontrollable laughter, happy tears, and special guests.",
-      image: "/bT3c4TSOP8vBmMoXZRDPTII6eDa.jpg",
+      image: "https://image.tmdb.org/t/p/original/bT3c4TSOP8vBmMoXZRDPTII6eDa.jpg",
       release_date: "2021-05-27",
       vote_average: 8.5,
       vote_count: 289,
@@ -608,7 +608,7 @@ async function run() {
       language: "en",
       synopsis:
         "Victoria is a young mother trying to put her dark past as a Russian drug courier behind her, but retired cop Damon forces Victoria to do his bidding by holding her daughter hostage. Now, Victoria must use guns, guts, and a motorcycle to take out a series of violent gangsters—or she may never see her child again.",
-      image: "/AoWY1gkcNzabh229Icboa1Ff0BM.jpg",
+      image: "https://image.tmdb.org/t/p/original/AoWY1gkcNzabh229Icboa1Ff0BM.jpg",
       release_date: "2021-04-16",
       vote_average: 6.0,
       vote_count: 112,
@@ -649,7 +649,7 @@ async function run() {
       language: "nl",
       synopsis:
         "Before he built a drug empire, Ferry Bouman returns to his hometown on a revenge mission that finds his loyalty tested — and a love that alters his life.",
-      image: "/w6n1pu9thpCVHILejsuhKf3tNCV.jpg",
+      image: "https://image.tmdb.org/t/p/original/w6n1pu9thpCVHILejsuhKf3tNCV.jpg",
       release_date: "2021-05-14",
       vote_average: 7.1,
       vote_count: 74,
@@ -697,7 +697,7 @@ async function run() {
       language: "ja",
       synopsis:
         "Tanjirō Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyōjurō Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
-      image: "/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
+      image: "https://image.tmdb.org/t/p/original/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg",
       release_date: "2020-10-16",
       vote_average: 8.4,
       vote_count: 1109,
@@ -734,11 +734,10 @@ async function run() {
           },
         ],
       },
-      id: 520763,
       language: "en",
       synopsis:
         "Following the events at home, the Abbott family now face the terrors of the outside world. Forced to venture into the unknown, they realize that the creatures that hunt by sound are not the only threats that lurk beyond the sand path.",
-      image: "/4q2hz2m8hubgvijz8Ez0T2Os2Yv.jpg",
+      image: "https://image.tmdb.org/t/p/original/4q2hz2m8hubgvijz8Ez0T2Os2Yv.jpg",
       release_date: "2021-05-21",
       title: "A Quiet Place Part II",
       vote_average: 7.4,
@@ -769,11 +768,10 @@ async function run() {
           },
         ],
       },
-      id: 813258,
       language: "en",
       synopsis:
         "Drac tries out some new monster pets to help occupy Tinkles for playtime.",
-      image: "/dkokENeY5Ka30BFgWAqk14mbnGs.jpg",
+      image: "https://image.tmdb.org/t/p/original/dkokENeY5Ka30BFgWAqk14mbnGs.jpg",
       release_date: "2021-04-02",
       title: "Monster Pets: A Hotel Transylvania Short",
       vote_average: 7.6,
@@ -822,7 +820,7 @@ async function run() {
       language: "fr",
       synopsis:
         "On school break, Marinette heads to Shanghai to meet Adrien. But after arriving, Marinette loses all her stuff, including the Miraculous that allows her to turn into Ladybug!",
-      image: "/msI5a9TPnepx47JUb2vl88hb80R.jpg",
+      image: "https://image.tmdb.org/t/p/original/msI5a9TPnepx47JUb2vl88hb80R.jpg",
       release_date: "2021-04-04",
       vote_average: 7.8,
       vote_count: 371,
@@ -870,7 +868,7 @@ async function run() {
       language: "en",
       synopsis:
         "Long ago, in the fantasy world of Kumandra, humans and dragons lived together in harmony. But when an evil force threatened the land, the dragons sacrificed themselves to save humanity. Now, 500 years later, that same evil has returned and it’s up to a lone warrior, Raya, to track down the legendary last dragon to restore the fractured land and its divided people.",
-      image: "/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
+      image: "https://image.tmdb.org/t/p/original/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
       release_date: "2021-03-03",
       vote_average: 8.2,
       vote_count: 2992,
@@ -904,7 +902,7 @@ async function run() {
       language: "ko",
       synopsis:
         "A former intelligence agent gets involved with the first human clone, Seo Bok, who others seek, causing trouble.",
-      image: "/nxxuWC32Y6TULj4VnVwMPUFLIpK.jpg",
+      image: "https://image.tmdb.org/t/p/original/nxxuWC32Y6TULj4VnVwMPUFLIpK.jpg",
       release_date: "2021-04-12",
       vote_average: 7.7,
       vote_count: 53,
