@@ -6,7 +6,11 @@ class MovieController {
   async getAll(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.movie.findMany({
       include: {
-        genres: true,
+        genres: {
+          include: {
+            genre: true,
+          }
+        },
       },
     });
 
@@ -25,7 +29,11 @@ class MovieController {
         id: Number(req.params.id),
       },
       include: {
-        genres: true,
+        genres: {
+          include: {
+            genre: true,
+          }
+        },
       },
     });
 
