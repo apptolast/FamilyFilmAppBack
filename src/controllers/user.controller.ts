@@ -4,6 +4,12 @@ import prisma from "../lib/prisma";
 
 class UserController {
   async getById(req: Request, res: Response, next: NextFunction) {
+    if (
+      Number(req.params.id) !== res.locals.payload.id ||
+      res.locals?.payload?.role !== "ADMIN"
+    )
+      return next({ status: StatusCodes.NOT_FOUND, message: "User not found" });
+
     const data = await prisma.user.findUnique({
       where: { id: Number(req.params.id) },
     });
@@ -15,7 +21,7 @@ class UserController {
   }
   async getAll(req: Request, res: Response, next: NextFunction) {
     const query: Object =
-      res.locals?.payload?.role !== "admin"
+      res.locals?.payload?.role !== "ADMIN"
         ? {
             where: {
               id: res.locals.payload.id,
