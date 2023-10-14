@@ -27,6 +27,11 @@ class GroupController {
             movie: true,
           },
         },
+        users: {
+          include: {
+            user: true
+          }
+        }
       },
     });
 
@@ -62,6 +67,11 @@ class GroupController {
             movie: true,
           },
         },
+        users: {
+          include: {
+            user: true
+          }
+        }
       },
     });
 
