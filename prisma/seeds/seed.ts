@@ -916,7 +916,11 @@ async function run() {
     update: {},
     create: {
       name: "Familia",
-      user_id: 1,
+      user: {
+        connect: {
+          id: 2,
+        }
+      },
       users: {
         create: [
           {
@@ -987,7 +991,11 @@ async function run() {
     update: {},
     create: {
       name: "Amigos",
-      user_id: 3,
+      user: {
+        connect: {
+          id: 3,
+        }
+      },
       users: {
         create: [
           {
@@ -1058,7 +1066,11 @@ async function run() {
     update: {},
     create: {
       name: "Novia",
-      user_id: 2,
+      user: {
+        connect: {
+          id: 2,
+        }
+      },
       users: {
         create: [
           {
@@ -1086,7 +1098,11 @@ async function run() {
     update: {},
     create: {
       name: "Solitario",
-      user_id: 2,
+      user: {
+        connect: {
+          id: 2,
+        }
+      },
       users: {
         create: [
           {
@@ -1150,7 +1166,11 @@ async function run() {
     update: {},
     create: {
       name: "Worker Dudes",
-      user_id: 1,
+      user: {
+        connect: {
+          id: 1,
+        }
+      },
       users: {
         create: [
           {
