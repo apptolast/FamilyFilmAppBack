@@ -9,7 +9,7 @@
     "docker:up": "docker-compose -f .docker/docker-compose.yml up -d",
     "docker:down": "docker-compose -f .docker/docker-compose.yml stop",
     "prisma:generate": "npx prisma generate",
-    "prisma:migrate": "npx prisma migrate dev --name base-migration && npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
     "prisma:push": "npx prisma db push",
     "prisma:init": "yarn prisma:generate && yarn prisma:migrate && yarn prisma:push",
     "prisma:seed": "npx prisma db seed",
