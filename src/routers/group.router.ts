@@ -20,4 +20,7 @@ groupRouter.route('/:id/removeWatch').patch(authMiddleware, rescue(groupControll
 groupRouter.route('/:id/addView').patch(authMiddleware, rescue(groupController.addView));
 groupRouter.route('/:id/removeView').patch(authMiddleware, rescue(groupController.removeView));
 
+groupRouter.route('/:id/addMember').patch(authMiddleware, rescue(groupController.addMember));
+groupRouter.route('/:id/removeMember').patch(authMiddleware, rescue(groupController.removeMember));
+
 export default groupRouter;
