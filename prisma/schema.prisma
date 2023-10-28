@@ -22,13 +22,11 @@ model User {
   role          Role   @default(USER)
 
   groups GroupUsers[]
-  Group  Group[]
 }
 
 model Group {
   id        Int          @id @default(autoincrement())
   name      String
-  user      User         @relation(fields: [user_id], references: [id])
   user_id   Int
   users     GroupUsers[]
   watchList WatchList[]
