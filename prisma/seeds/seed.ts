@@ -8,7 +8,7 @@ async function run() {
     update: {},
     create: {
       email: "admin@apptolast.com",
-      firebase_uuid: "Pass1234",
+      firebase_uuid: "zOJ2LnE9qhdya5qOtqYAhe9fJch1",
     },
   });
   const user2 = await prisma.user.upsert({
@@ -32,7 +32,7 @@ async function run() {
     update: {},
     create: {
       email: "user4@test.com",
-      firebase_uuid: "Pass1234",
+      firebase_uuid: "pNMuAahjtSSNKq3p1mefrT3hUpC2",
     },
   });
   const user5 = await prisma.user.upsert({
