@@ -87,7 +87,6 @@ model Movie {
   id           Int     @id @default(autoincrement())
   adult        Boolean @default(false)
   title        String
-  genre_ids    Int[]
   language     String
   synopsis     String?
   image        String?

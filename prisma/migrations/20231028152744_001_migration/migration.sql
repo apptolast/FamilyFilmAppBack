@@ -65,7 +65,6 @@ CREATE TABLE "Movie" (
     "id" SERIAL NOT NULL,
     "adult" BOOLEAN NOT NULL DEFAULT false,
     "title" TEXT NOT NULL,
-    "genre_ids" INTEGER[],
     "language" TEXT NOT NULL,
     "synopsis" TEXT,
     "image" TEXT,
