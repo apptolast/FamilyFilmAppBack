@@ -93,6 +93,7 @@ model Movie {
   release_date String?
   vote_average Float
   vote_count   Int?
+  genre_ids    Int[]
 
   genres     GenreMovie[]
   watchLists WatchList[]
