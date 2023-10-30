@@ -29,9 +29,9 @@ class GroupController {
         },
         users: {
           include: {
-            user: true
-          }
-        }
+            user: true,
+          },
+        },
       },
     });
 
@@ -69,9 +69,9 @@ class GroupController {
         },
         users: {
           include: {
-            user: true
-          }
-        }
+            user: true,
+          },
+        },
       },
     });
 
@@ -87,7 +87,7 @@ class GroupController {
 
   async create(req: Request, res: Response, next: NextFunction) {
     const data = await prisma.group.create({
-      data: { 
+      data: {
         ...req.body,
         user_id: res.locals.payload.id,
       },
@@ -213,41 +213,55 @@ class GroupController {
   }
 
   async addMember(req: Request, res: Response, next: NextFunction) {
-    const userId: number = Number(req.body.userId);
+    const userEmail: string = req.body.email;
 
-    if(!userId) {
+    if (!userEmail) {
       return next({
         status: StatusCodes.UNPROCESSABLE_ENTITY,
-        message: "No userId received"
-      })
+        message: "No user email received",
+      });
+    }
+
+    const user = await prisma.user.findFirst({
+      where: {
+        email: userEmail,
+      },
+    });
+
+    if (!user) {
+      // TODO: Envio de email - Invitación a la app
+      return next({
+        status: StatusCodes.NOT_FOUND,
+        message: "No user found",
+      });
     }
 
     const group = await prisma.group.findFirst({
       where: {
         id: Number(req.params.id),
-      }
-    })
+      },
+    });
 
     if (!group) {
       return next({
-        status: StatusCodes.FORBIDDEN,
-        message: 'No group found',
-      })
+        status: StatusCodes.NOT_FOUND,
+        message: "No group found",
+      });
     }
 
     if (group.user_id !== res.locals.payload.id) {
       return next({
         status: StatusCodes.FORBIDDEN,
-        message: 'No permissions to edit group'
-      })
+        message: "No permissions to edit group",
+      });
     }
 
     const data = await prisma.groupUsers.create({
       data: {
         group_id: group.id,
-        user_id: userId,
-      }
-    })
+        user_id: user.id,
+      },
+    });
 
     res.status(StatusCodes.OK).json({ status: "success", data });
   }
@@ -255,39 +269,39 @@ class GroupController {
   async removeMember(req: Request, res: Response, next: NextFunction) {
     const userId: number = Number(req.body.userId);
 
-    if(!userId) {
+    if (!userId) {
       return next({
         status: StatusCodes.UNPROCESSABLE_ENTITY,
-        message: "No userId received"
-      })
+        message: "No userId received",
+      });
     }
 
     const group = await prisma.group.findFirst({
       where: {
         id: Number(req.params.id),
-      }
-    })
+      },
+    });
 
     if (!group) {
       return next({
-        status: StatusCodes.FORBIDDEN,
-        message: 'No group found',
-      })
+        status: StatusCodes.NOT_FOUND,
+        message: "No group found",
+      });
     }
 
     if (group.user_id !== res.locals.payload.id) {
       return next({
         status: StatusCodes.FORBIDDEN,
-        message: 'No permissions to edit group'
-      })
+        message: "No permissions to edit group",
+      });
     }
 
     const data = await prisma.groupUsers.deleteMany({
       where: {
         group_id: group.id,
         user_id: userId,
-      }
-    })
+      },
+    });
 
     res.status(StatusCodes.NO_CONTENT).json({ status: "success", data });
   }
