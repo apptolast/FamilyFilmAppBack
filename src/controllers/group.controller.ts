@@ -90,6 +90,17 @@ class GroupController {
       data: {
         ...req.body,
         user_id: res.locals.payload.id,
+        users: {
+          create: [
+            {
+              user: {
+                connect: {
+                  id: res.locals.payload.id,
+                }
+              },
+            },
+          ],
+        },
       },
     });
 
