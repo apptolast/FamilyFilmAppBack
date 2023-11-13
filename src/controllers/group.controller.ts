@@ -131,7 +131,7 @@ class GroupController {
     res.status(StatusCodes.OK).json({ status: "success", data });
   }
   async delete(req: Request, res: Response, next: NextFunction) {
-    const data = await prisma.group.delete({
+    const data = await prisma.group.deleteMany({
       where: {
         id: Number(req.params.id),
         user_id: res.locals.payload.id,

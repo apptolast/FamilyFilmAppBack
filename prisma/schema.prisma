@@ -37,8 +37,8 @@ model GroupUsers {
   user_id  Int
   group_id Int
 
-  user  User  @relation(fields: [user_id], references: [id])
-  group Group @relation(fields: [group_id], references: [id])
+  user  User  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  group Group @relation(fields: [group_id], references: [id], onDelete: Cascade)
 
   @@id([user_id, group_id])
 }
@@ -47,8 +47,8 @@ model WatchList {
   group_id Int
   movie_id Int
 
-  group Group @relation(fields: [group_id], references: [id])
-  movie Movie @relation(fields: [movie_id], references: [id])
+  group Group @relation(fields: [group_id], references: [id], onDelete: Cascade)
+  movie Movie @relation(fields: [movie_id], references: [id], onDelete: Cascade)
 
   @@id([group_id, movie_id])
 }
@@ -57,8 +57,8 @@ model ViewList {
   group_id Int
   movie_id Int
 
-  group Group @relation(fields: [group_id], references: [id])
-  movie Movie @relation(fields: [movie_id], references: [id])
+  group Group @relation(fields: [group_id], references: [id], onDelete: Cascade)
+  movie Movie @relation(fields: [movie_id], references: [id], onDelete: Cascade)
 
   @@id([group_id, movie_id])
 }
@@ -74,8 +74,8 @@ model GenreMovie {
   genre_id Int
   movie_id Int
 
-  genre Genre @relation(fields: [genre_id], references: [id])
-  movie Movie @relation(fields: [movie_id], references: [id])
+  genre Genre @relation(fields: [genre_id], references: [id], onDelete: Cascade)
+  movie Movie @relation(fields: [movie_id], references: [id], onDelete: Cascade)
 
   @@id([genre_id, movie_id])
 }
