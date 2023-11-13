@@ -96,7 +96,7 @@ class GroupController {
               user: {
                 connect: {
                   id: res.locals.payload.id,
-                }
+                },
               },
             },
           ],
@@ -131,18 +131,24 @@ class GroupController {
     res.status(StatusCodes.OK).json({ status: "success", data });
   }
   async delete(req: Request, res: Response, next: NextFunction) {
-    const data = await prisma.group.deleteMany({
+    const group = await prisma.group.findFirst({
       where: {
         id: Number(req.params.id),
         user_id: res.locals.payload.id,
       },
     });
 
-    if (!data)
+    if (!group)
       return next({
         status: StatusCodes.NOT_FOUND,
         message: "Not group found",
       });
+
+    const data = await prisma.group.delete({
+      where: {
+        id: group.id,
+      },
+    });
 
     res.status(StatusCodes.NO_CONTENT).json({ status: "success", data });
   }
